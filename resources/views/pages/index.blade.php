@@ -45,30 +45,32 @@
                 </div>
             </div>
             <div class="container-fluid">
-                <!-- Display Images -->
-                <div class="row">
-                    <div class="card-columns">
-                        @foreach ($allProducts as $product)
-                            <div class="card card-pin">
-                                <img class="card-img"
-                                    src="{{ asset('storage/'. $product->image_url) }}"
-                                    alt="{{ $product->name }}"
-                                    onclick="openViewer('{{ asset('storage/'. $product->image_url) }}')"
-                                >
-                                <div class="overlay">
-                                    <h2 class="card-title title">{{ $product->name }}</h2>
-                                    <p class="card-title title">{{ $product->description }}</p>
-                                    <p>{{ $product->id }}</p>
-                                    <div class="more">
-                                        <a href="{{ route('post') }}">
-                                            <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More
-                                        </a>
+                {{-- <div class="element ftco-animate" data-animate-effect="fadeIn"> --}}
+                    <!-- Display Images -->
+                    <div class="row">
+                        <div class="card-columns">
+                            @foreach ($allProducts as $product)
+                                <div class="card card-pin border">
+                                    <a href="{{ asset('storage/'. $product->image_url) }}" class="image-popup" data-mfp-src="{{ asset('storage/'. $product->image_url) }}">
+                                        <img class="card-img"
+                                            src="{{ asset('storage/'. $product->image_url) }}"
+                                            alt="{{ $product->name }}"
+                                        >
+                                    </a>
+                                    <div class="overlay">
+                                        <h2 class="card-title title">{{ $product->name }}</h2>
+                                        <h2 class="card-title title">{{ $product->description }}</h2>
+                                        <div class="more">
+                                            <a href="#" class="see-button fs-3" title="Tap To Saw Image" data-image-src="{{ asset('storage/'. $product->image_url) }}">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
-                </div>
+                {{-- </div> --}}
             </div>
         </section>
 
@@ -77,6 +79,7 @@
 
 @section('custom-scripts')
     <script>
+        // Initialize Magnific Popup for images
         $('.image-popup').magnificPopup({
             type: 'image',
             closeOnContentClick: true,
@@ -85,7 +88,7 @@
             mainClass: 'mfp-no-margins mfp-with-zoom',
             gallery: {
                 enabled: true,
-                navigateByImgClick: true,
+                navigateByImgClick: false,
                 preload: [0, 1]
             },
             image: {
@@ -96,6 +99,21 @@
                 duration: 300
             }
         });
+
+        // Add click event to the "See" button to open the image popup
+        $('.see-button').on('click', function (e) {
+            e.preventDefault();
+
+            var imageSrc = $(this).data('image-src');
+
+            $.magnificPopup.open({
+                items: {
+                    src: imageSrc
+                },
+                type: 'image'
+            });
+        });
+
     </script>
 @endsection
 
