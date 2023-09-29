@@ -89,7 +89,8 @@ footer.footer {
     border: 5px solid #f3f3f3;
     -webkit-transition: ease 0.2s;
     transition: ease 0.2s;
-    background-color: #000000;
+    /* background-color: #000000; */
+    background-color: transparent;
     cursor: -webkit-zoom-in;
     cursor: pointer;
 }
