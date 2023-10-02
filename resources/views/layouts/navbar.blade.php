@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-    <a class="navbar-brand font-weight-bolder mr-3" href="{{ route('index') }}"><img src="assets/img/logo.png"></a>
+    <a class="navbar-brand font-weight-bolder mr-3" href="{{ route('index') }}"><img src="assets/img/p.jpg" height="50" width="50"></a>
     <button class="navbar-light navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,10 +16,13 @@
                 <a class="nav-link active" href="{{ route('index') }}">Home</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link active" href="{{ route('image_generate') }}">Image Generate</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('post') }}">Post</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('author') }}"><img class="rounded-circle mr-2" src="assets/img/av.png" width="30"><span class="align-middle">Author</span></a>
+                <a class="nav-link" href="{{ route('author') }}"><img class="rounded-circle mr-2" src="{{ asset('assets/img/av.png')}}" width="30"><span class="align-middle">Author</span></a>
             </li>
             @auth()
                 {{-- drodown --}}

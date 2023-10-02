@@ -28,8 +28,7 @@
         -->
         <p>© <span class="credits font-weight-bold">
                 <a target="_blank" class="text-dark"
-                    href="https://www.wowthemes.net/pintereso-free-html-bootstrap-template/"><u>Pintereso Bootstrap
-                        HTML Template</u> by WowThemes.net.</a>
+                    href="#"><u>Pratik</u></a>
             </span>
         </p>
 
