@@ -59,11 +59,11 @@
                                     </a>
                                     <div class="overlay">
                                         <h2 class="card-title title">{{ $product->name }}</h2>
-                                        <div class="more">
-                                            <a href="javascript()" class="see-button fs-3 text-warning" title="Tap To Saw Image" data-image-src="{{ asset('storage/'. $product->image_url) }}">
+                                        <div class="more bg-light rounded-3 m-1 p-1">
+                                            <a href="javascript()" class="see-button fs-3 text-dark" title="Tap To Saw Image" data-image-src="{{ asset('storage/'. $product->image_url) }}">
                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                             </a>
-                                            <a href="{{ asset('storage/'. $product->image_url) }}" class="download-button fs-3 text-warning" title="Download Image" download>
+                                            <a href="{{ asset('storage/'. $product->image_url) }}" class="download-button fs-3 text-dark" title="Download Image" download>
                                                 <i class="fa fa-download" aria-hidden="true"></i>
                                             </a>
                                         </div>

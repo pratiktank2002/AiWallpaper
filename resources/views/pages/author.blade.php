@@ -4,10 +4,10 @@
     <main role="main">
 
         <div class="jumbotron border-round-0 min-50vh"
-            style="background-image:url(https://images.unsplash.com/photo-1522204657746-fccce0824cfd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=84b5e9bea51f72c63862a0544f76e0a3&auto=format&fit=crop&w=1500&q=80);">
+            style="background-image:url(https://plus.unsplash.com/premium_photo-1679082305620-fa44b9a3b6ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGFpJTIwZ2VuZXJhdGVkfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60);">
         </div>
         <div class="container mb-4">
-            <img src="assets/img/av.png" class="mt-neg100 mb-4 rounded-circle" width="128">
+            <img src="https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" class="mt-neg100 mb-4 rounded-circle" width="128">
             <h1 class="font-weight-bold title">Sal</h1>
             <p>
                 I love Art, Web Design, Photography, Design, Illustration

@@ -15,9 +15,11 @@
             <li class="nav-item">
                 <a class="nav-link active" href="{{ route('index') }}">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="{{ route('image_generate') }}">Image Generate</a>
-            </li>
+            @auth()
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('image_generate') }}">Generate Image</a>
+                </li>
+            @endauth
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('post') }}">Post</a>
             </li>
@@ -53,15 +55,15 @@
     </div>
 </nav>
 @if(session('message'))
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Yay!',
-        text: '{{ \Illuminate\Support\Str::limit(session('message'), 50, $end='...') }}',
-        showConfirmButton: false,
-        timer: 2500
-    });
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Yay!',
+            text: '{{ \Illuminate\Support\Str::limit(session('message'), 50, $end='...') }}',
+            showConfirmButton: false,
+            timer: 2500
+        });
+    </script>
 @endif

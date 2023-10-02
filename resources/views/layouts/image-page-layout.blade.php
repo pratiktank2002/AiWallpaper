@@ -34,9 +34,6 @@
     {{--main page content --}}
     @yield('main-section')
 
-
-    {{-- @include('layouts.footer') --}}
-
     {{-- all scripts --}}
     @include('layouts.scripts')
 

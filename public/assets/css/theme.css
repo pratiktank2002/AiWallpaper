@@ -110,10 +110,11 @@ footer.footer {
 
 /* line 66, src/assets/scss/theme.scss */
 .card-pin:hover .card-title {
-    color: #ffffff;
+    color: black;
     margin-top: 10px;
     text-align: center;
     font-size: 1.2em;
+    background: whitesmoke;
 }
 
 /* line 73, src/assets/scss/theme.scss */

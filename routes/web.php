@@ -3,6 +3,7 @@
 use App\Http\Controllers\PagesRoutesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserDetailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,7 +40,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    // page controller routes
     Route::get('/image_generate', [PagesRoutesController::class, 'image_generate'])->name('image_generate');
+
+    // user detail routes
+    Route::get('/user_detail', [UserDetailController::class, 'index'])->name('user_detail.index');
+    Route::post('/user_add', [UserDetailController::class, 'store'])->name('user_add.store');
+    Route::post('/update-image-generation-count', [UserDetailController::class, 'updateImageGenerationCount'])->name('update-image-generation-count');
 });
 
 require __DIR__.'/auth.php';
