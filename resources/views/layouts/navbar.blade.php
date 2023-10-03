@@ -5,7 +5,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarsDefault">
         <ul class="navbar-nav mr-auto align-items-center text-center">
-            <h3 class="text-uppercase">Ai wallpaper</h3>
+            <a href="{{ route('index') }}" class="text-decoration-none">
+                <h3 class="text-uppercase">Ai wallpaper</h3>
+            </a>
         </ul>
         <ul class="navbar-nav ml-auto align-items-center">
             <li class="nav-item">
@@ -13,10 +15,10 @@
             </li>
             @auth()
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('image_generate') }}">Generate Image</a>
+                    <a class="nav-link" title="Genrate images from text" href="{{ route('image_generate') }}">Generate Image</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('mobileWallpapers') }}">Mobile</a>
+                    <a class="nav-link" title="Mobile Walpapers" href="{{ route('mobileWallpapers') }}">Mobile</a>
                 </li>
                 {{-- Dropdown for other links --}}
                 <li class="nav-item dropdown">
@@ -26,6 +28,7 @@
                     <div class="dropdown-menu dropdown-menu-right shadow-lg text-center" aria-labelledby="dropdown02">
                         {{-- Move other links to the dropdown --}}
                         <span class="dropdown-item"><a href="{{ route('blogs') }}">Blogs</a></span>
+                        <div class="dropdown-divider"></div>
                         <span class="dropdown-item"><a href="{{ route('author') }}"><img class="rounded-circle mr-2" src="{{ asset('assets/img/av.png')}}" width="30">Author</a></span>
                         {{-- ... Add other links here ... --}}
                         <div class="dropdown-divider"></div>

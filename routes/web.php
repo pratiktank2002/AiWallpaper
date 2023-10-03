@@ -23,14 +23,9 @@ Route::get('/search-products', [ProductsController::class, 'searchProducts'])->n
 
 Route::get('/mobile-wallpapers', [PagesRoutesController::class, 'mobileWallpapers'])->name('mobileWallpapers');
 
-Route::get('/author', function () {
-    return view('pages.author');
-})->name('author');
+Route::get('/author', [PagesRoutesController::class, 'author'])->name('author');
 
-
-Route::get('/post', function () {
-    return view('pages.post');
-})->name('post');
+Route::get('/post',[PagesRoutesController::class, 'post'])->name('post');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

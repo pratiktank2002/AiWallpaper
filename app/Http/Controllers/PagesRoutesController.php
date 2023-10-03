@@ -30,6 +30,7 @@ class PagesRoutesController extends Controller
 
     }
 
+    // mobile image pages
     public function mobileWallpapers()
     {
 
@@ -37,5 +38,18 @@ class PagesRoutesController extends Controller
         // dd($allProducts);
 
         return view('pages.mobile-wallpaper', compact('allProducts'));
+    }
+
+
+    // post page
+    public function post()
+    {
+        return view('pages.post');
+    }
+
+    // Author page
+    public function author()
+    {
+        return view('pages.author');
     }
 }
