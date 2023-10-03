@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\PagesRoutesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
@@ -32,6 +33,8 @@ Route::get('/post', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/blogs', [BlogsController::class, 'index'])->name('blogs');
 
 Route::middleware('auth')->group(function () {
 

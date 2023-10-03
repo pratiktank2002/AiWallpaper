@@ -20,8 +20,11 @@
                     <a class="nav-link" href="{{ route('image_generate') }}">Generate Image</a>
                 </li>
             @endauth
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="{{ route('post') }}">Post</a>
+            </li> --}}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('blogs') }}">Blogs</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('author') }}"><img class="rounded-circle mr-2" src="{{ asset('assets/img/av.png')}}" width="30"><span class="align-middle">Author</span></a>

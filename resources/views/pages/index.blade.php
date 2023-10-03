@@ -49,6 +49,7 @@
                     <!-- Display Images -->
                     <div class="row">
                         <div class="card-columns">
+                            {{-- 1st time --}}
                             @foreach ($allProducts as $product)
                                 <div class="card card-pin border">
                                     <a href="{{ asset('storage/'. $product->image_url) }}" class="image-popup" data-mfp-src="{{ asset('storage/'. $product->image_url) }}">
@@ -58,7 +59,10 @@
                                         >
                                     </a>
                                     <div class="overlay">
-                                        <h2 class="card-title title">{{ $product->name }}</h2>
+                                        <h2 class="card-title title text-uppercase">{{ $product->name }}</h2>
+                                        @if (Auth::user()->role == 'admin')
+                                            <h2 class="card-title title text-uppercase">{{ $product->id }}</h2>
+                                        @endif
                                         <div class="more bg-light rounded-3 m-1 p-1">
                                             <a href="javascript()" class="see-button fs-3 text-dark" title="Tap To Saw Image" data-image-src="{{ asset('storage/'. $product->image_url) }}">
                                                 <i class="fa fa-eye" aria-hidden="true"></i>
@@ -98,7 +102,18 @@
             },
             zoom: {
                 enabled: true,
-                duration: 300
+                duration: 300,
+                easing: 'ease-in-out'
+            },
+            callbacks: {
+                // Add a callback to display image name
+                open: function() {
+                    var imgTitle = $(this.currItem.el).find('.card-title').text();
+                    var mfpContent = this.contentContainer;
+
+                    // Create and append a title element
+                    $('<div class="mfp-title"></div>').text(imgTitle).appendTo(mfpContent);
+                }
             }
         });
 
