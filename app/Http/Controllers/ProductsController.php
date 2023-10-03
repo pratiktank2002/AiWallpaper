@@ -20,6 +20,17 @@ class ProductsController extends Controller
         return view('pages.index', compact('allProducts'));
     }
 
+    public function searchProducts(Request $request)
+    {
+        $searchTerm = $request->input('search');
+
+        // Perform the search query on your products using $searchTerm
+        $results = Products::where('name', 'like', '%' . $searchTerm . '%')->get();
+
+        return response()->json($results);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */

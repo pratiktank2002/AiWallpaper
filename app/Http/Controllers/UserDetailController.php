@@ -77,6 +77,37 @@ class UserDetailController extends Controller
         return redirect()->route('image_generate')->with('message','user detail created successfully');
     }
 
+    // update image download count
+    public function updateImageDownloadCount(Request $request)
+    {
+        // Get the authenticated user
+        $user = Auth::user();
+
+        if (!$user) {
+            return response()->json(['success' => false, 'message' => 'User not authenticated'], 401);
+        }
+
+        // Get the user's UserDetail record
+        $userDetail = UserDetail::where('user_id', $user->id)->first();
+
+        if (!$userDetail) {
+            return response()->json(['success' => false, 'message' => 'User details not found'], 404);
+        }
+
+        // Check if the download limit is reached
+        if ($userDetail->image_download_count >= 10) {
+            return response()->json(['success' => false, 'message' => 'Download limit exceeded'], 400);
+        }
+
+        // Update the image_download_count
+        $userDetail->image_download_count += 1;
+        $userDetail->save();
+
+        return response()->json(['success' => true, 'message' => 'Image download count updated successfully']);
+    }
+
+
+
     /**
      * Display the specified resource.
      */

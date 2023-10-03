@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ProductsController::class, 'index'])->name('index');
+Route::get('/search-products', [ProductsController::class, 'searchProducts'])->name('search-products');
 
+Route::get('/mobile-wallpapers', [PagesRoutesController::class, 'mobileWallpapers'])->name('mobileWallpapers');
 
 Route::get('/author', function () {
     return view('pages.author');
@@ -50,6 +52,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/user_detail', [UserDetailController::class, 'index'])->name('user_detail.index');
     Route::post('/user_add', [UserDetailController::class, 'store'])->name('user_add.store');
     Route::post('/update-image-generation-count', [UserDetailController::class, 'updateImageGenerationCount'])->name('update-image-generation-count');
+    Route::post('/update-image-download-count', [UserDetailController::class, 'updateImageDownloadCount'])->name('update-image-download-count');
+
 });
 
 require __DIR__.'/auth.php';

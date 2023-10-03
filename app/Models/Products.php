@@ -16,7 +16,7 @@ class Products extends Model
     protected $fillable = [
         'name' , 'description' , 'image_url' ,
         'category' , 'resolution' , 'file_type',
-        'status',
+        'status', 'is_mobile'
     ];
 
     public function product_type()

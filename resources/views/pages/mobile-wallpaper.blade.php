@@ -1,15 +1,13 @@
 @extends('layouts.main')
-
 @section('main-section')
     <main role="main">
 
         <section class="mt-4 mb-5">
-            <div class="container mb-4">
-                <h1 class="font-weight-bold title">Explore AI Images</h1>
+            <div class="container mb-4 text-center">
+                <h1 class="font-weight-bold title">Mobile Wallpapers</h1>
                 <div class="row">
                     <form class="bd-search hidden-sm-down">
-                        <input type="text" class="form-control bg-graylight border-0 font-weight-bold" id="search-input" placeholder="Search...eg.(panda,nature,3d...etc)" autocomplete="off">
-                        <div class="dropdown-menu bd-search-results" id="search-results">
+                        <input type="text" class="form-control bg-graylight border-0 font-weight-bold" id="search-input" placeholder="Search...eg.(panda,cat,nyc...etc)" autocomplete="off">
                         </div>
                     </form>
                 </div>
@@ -56,6 +54,30 @@
 @endsection
 
 @section('custom-scripts')
+    {{-- serching script --}}
+    <script>
+        $(document).ready(function() {
+            $('#search-input').on('input', function() {
+                var searchTerm = $(this).val().trim().toLowerCase(); // Get the search term
+
+                // Loop through all product cards and hide/show them based on the search term
+                $('.card-columns .card').each(function() {
+                    var productName = $(this).find('.card-title').text().toLowerCase();
+                    var productId = $(this).attr('id').replace('product-', '');
+
+                    if (productName.includes(searchTerm)) {
+                        // Show the card if the search term matches the product name
+                        $(this).show();
+                    } else {
+                        // Hide the card if there is no match
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
+
+    {{-- pop up script --}}
     <script>
         // Initialize Magnific Popup for images
         $('.image-popup').magnificPopup({
@@ -104,29 +126,4 @@
         });
 
     </script>
-
-    <script>
-        $(document).ready(function() {
-            $('#search-input').on('input', function() {
-                var searchTerm = $(this).val().trim().toLowerCase(); // Get the search term
-
-                // Loop through all product cards and hide/show them based on the search term
-                $('.card-columns .card').each(function() {
-                    var productName = $(this).find('.card-title').text().toLowerCase();
-                    var productId = $(this).attr('id').replace('product-', '');
-
-                    if (productName.includes(searchTerm)) {
-                        // Show the card if the search term matches the product name
-                        $(this).show();
-                    } else {
-                        // Hide the card if there is no match
-                        $(this).hide();
-                    }
-                });
-            });
-        });
-    </script>
-
-
 @endsection
-

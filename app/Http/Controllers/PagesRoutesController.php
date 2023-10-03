@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Products;
 use App\Models\UserDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,5 +28,14 @@ class PagesRoutesController extends Controller
             return view('pages.image-generator');
         }
 
+    }
+
+    public function mobileWallpapers()
+    {
+
+        $allProducts = Products::where('is_mobile', '1')->get();
+        // dd($allProducts);
+
+        return view('pages.mobile-wallpaper', compact('allProducts'));
     }
 }
