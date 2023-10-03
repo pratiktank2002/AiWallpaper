@@ -5,7 +5,7 @@
     <div class="container">
         <h1>Ai Image Generator</h1>
         <p>Write your prompt here to generate images with power of Ai, For example : "Best Quality, Masterpiece,
-            Exteremly Detailed, High Resolution, 4K, Ultra High Resolution, Detailed Shadows, (Two Girls in Cosumes
+            Exteremly Detailed, High Resolution, 4K, Ultra High Resolution, Detailed Shadows, (Two boys in Cosumes
             Taking Selfies on The Street), Colorful Braids, Mixed Fujifilm, Cute, Laugh".</p>
         <form class="gen-form">
             {{-- <input type="text" id="" ,  > --}}
@@ -46,22 +46,40 @@
                                 text: 'Your image is being generated.',
                                 showConfirmButton: false,
                                 timer: 1500,
-                            });
+                                backdrop:`
+                                    rgba(0,0,123,0.4)
+                                    url("{{ asset('assets/gif/running-run.gif')}}")
+                                    left top
+                                    no-repeat
+                                `,
+                            }).then( response => {
+                                  if (response.value) {
+                                      // call
+                                      generateImage();
+                                  }
+                                }
+                            );
 
-                            // Call your image generation logic here
-                            generateImage();
+
                         } else {
                             // Show a message if the limit is exceeded and close it after 2 seconds
                             Swal.fire({
                                 icon: 'warning',
                                 title: 'Limit Exceeded',
-                                text: 'You have reached the daily generation limit. Please try again tomorrow.',
+                                text: 'You have reached the daily generation limit of 5. Please try again tomorrow.',
                                 showConfirmButton: false, // Hide the "OK" button
                                 timer: 3000, // Automatically close after 2 seconds
                             });
                         }
                     } else {
                         // Handle other error cases here
+                        Swal.fire({
+                            icon: 'info',
+                            title: 'Technical Error',
+                            text: 'failed to generate image due to Technical error',
+                            showConfirmButton: false, // Hide the "OK" button
+                            timer: 3000, // Automatically close after 2 seconds
+                        });
                     }
                 })
                 .catch(error => {

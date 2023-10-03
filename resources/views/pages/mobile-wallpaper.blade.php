@@ -7,7 +7,11 @@
                 <h1 class="font-weight-bold title">Mobile Wallpapers</h1>
                 <div class="row">
                     <form class="bd-search hidden-sm-down">
-                        <input type="text" class="form-control bg-graylight border-0 font-weight-bold" id="search-input" placeholder="Search...eg.(panda,cat,nyc...etc)" autocomplete="off">
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-graylight border-0 font-weight-bold">
+                                <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
+                            </div>
+                            <input type="text" class="form-control bg-graylight border-0 font-weight-bold" id="search-input" placeholder="Search...eg.(panda,cat,nyc...etc)" autocomplete="off">
                         </div>
                     </form>
                 </div>
@@ -76,6 +80,19 @@
             });
         });
     </script>
+
+    {{-- key binding --}}
+    <script>
+        document.addEventListener('keydown', function(event) {
+            // Check if Ctrl key (or Command key on Mac) is pressed
+            if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
+                event.preventDefault(); // Prevent the default behavior (e.g., browser search)
+                // Focus on the search input
+                document.getElementById('search-input').focus();
+            }
+        });
+    </script>
+
 
     {{-- pop up script --}}
     <script>

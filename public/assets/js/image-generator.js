@@ -53,7 +53,14 @@ async function generateImages(input) {
         );
 
         if (!response.ok) {
-            alert("Failed to generate image!");
+            // alert("Failed to generate image!");
+            Swal.fire({
+                icon: 'info',
+                title: 'API Error',
+                text: 'failed to generate image due to API error',
+                showConfirmButton: false, // Hide the "OK" button
+                timer: 4000, // Automatically close after 2 seconds
+            });
         }
 
         const blob = await response.blob();

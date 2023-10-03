@@ -28,7 +28,7 @@
                                             alt="{{ $product->name }}"
                                         >
                                     </a>
-                                    <div class="overlay">
+                                    <div class="overlay see-button" data-image-src="{{ asset('storage/'. $product->image_url) }}">
                                         <h2 class="card-title title text-uppercase">{{ $product->name }}</h2>
                                         @if (Auth::user()->role == 'admin')
                                             <h2 class="card-title title text-uppercase">{{ $product->id }}</h2>
