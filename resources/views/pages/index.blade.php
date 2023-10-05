@@ -4,17 +4,38 @@
     <main role="main" style="background: #f3f5f7">
 
         <section class="pt-4 mb-5">
-            <div class="container mb-4 text-center">
-                <h1 class="font-weight-bold title">Explore AI Images</h1>
-                <div class="row">
-                    <form class="bd-search hidden-sm-down">
-                        <input type="text" class="form-control bg-dark text-light border-0 font-weight-bold"
-                            id="search-input" placeholder="Search...eg.(panda,nature,3d...etc)" autocomplete="off">
-                        <input type="range" class="form-range mt-3 text-dark" min="3" step="0.1" max="6"
-                            id="customRange2" style="width: 30%">
-                    </form>
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center">
+                        <h1 class="font-weight-bold text-uppercase title mb-5">Explore AI Images</h1>
+                        <form class="bd-search ">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-dark border-0">
+                                        <i class="fa fa-search text-muted"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control text-dark border-0 font-weight-bold"
+                                    id="search-input" placeholder="Search...eg.(panda,nature,3d...etc)" autocomplete="off">
+                            </div>
+                            <style>
+                                /* WebKit (Chrome, Safari) */
+                                input[type="range"]::-webkit-slider-thumb {
+                                    background-color: #40404F;
+                                }
+
+                                /* Firefox */
+                                input[type="range"]::-moz-range-thumb {
+                                    background-color: #40404F;
+                                }
+                            </style>
+                            <div class="my-2">
+                                <input type="range" class="form-range mt-3 text-dark" min="3" step="0.1" max="6"
+                                    id="customRange2" style="width: 50%">
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
             </div>
             <div class="container-fluid">
                 {{-- <div class="element ftco-animate" data-animate-effect="fadeIn"> --}}
@@ -29,7 +50,7 @@
                                         <img class="card-img" src="{{ asset('storage/' . $product->image_url) }}"
                                             alt="{{ $product->name }}">
                                     </a>
-                                    <div class="overlay see-button" data-image-src="{{ asset('storage/' . $product->image_url) }}">
+                                    <div class="overlay">
                                         <h2 class="card-title title text-uppercase">{{ $product->name }}</h2>
                                         @auth()
                                             @if (Auth::user()->role == 'admin')

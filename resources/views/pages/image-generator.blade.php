@@ -5,7 +5,7 @@
     <div class="container">
         <h1>Ai Image Generator</h1>
         <p>Write your prompt here to generate images with power of Ai, For example : "Best Quality, Masterpiece,
-            Exteremly Detailed, High Resolution, 4K, Ultra High Resolution, Detailed Shadows, (Two boys in Cosumes
+            Extremely Detailed, High Resolution, 4K, Ultra High Resolution, Detailed Shadows, (Two boys in Cosumes
             Taking Selfies on The Street), Colorful Braids, Mixed Fujifilm, Cute, Laugh".</p>
         <form class="gen-form">
             {{-- <input type="text" id="" ,  > --}}
@@ -39,27 +39,7 @@
                     // Check if the AJAX call was successful
                     if (data.success) {
                         if (!data.limitExceeded) {
-                            // Show an alert when the limit is not exceeded
-                            Swal.fire({
-                                icon: 'success',
-                                title: 'Image Generation',
-                                text: 'Your image is being generated.',
-                                showConfirmButton: false,
-                                timer: 1500,
-                                backdrop:`
-                                    rgba(0,0,123,0.4)
-                                    url("{{ asset('assets/gif/running-run.gif')}}")
-                                    left top
-                                    no-repeat
-                                `,
-                            }).then( response => {
-                                  if (response.value) {
-                                      // call
-                                      generateImage();
-                                  }
-                                }
-                            );
-
+                            generateImage();
 
                         } else {
                             // Show a message if the limit is exceeded and close it after 2 seconds

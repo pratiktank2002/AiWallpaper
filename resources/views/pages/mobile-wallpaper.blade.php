@@ -1,18 +1,39 @@
 @extends('layouts.main')
 @section('main-section')
     <main role="main">
+        <style>
+            input[type="range"]::-webkit-slider-thumb {
+                background-color: #40404F;
+            }
+            input[type="range"]::-moz-range-thumb {
+                background-color: #40404F;
+            }
+        </style>
 
         <section class="mt-4 mb-5">
-            <div class="container mb-4 text-center">
-                <h1 class="font-weight-bold title">Mobile Wallpapers</h1>
-                <div class="row">
-                    <form class="bd-search hidden-sm-down">
-                            <input type="text" class="form-control bg-dark text-light border-0 font-weight-bold" id="search-input" placeholder="Search...eg.(panda,cat,nyc...etc)" autocomplete="off">
-                            {{-- <label for="range" class="mt-1">Column Count</label> --}}
-                            <input type="range" class="form-range mt-3 text-dark" min="3" step="0.1" max="6" id="customRange2" style="width: 30%">
-                    </form>
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center">
+                        <h1 class="font-weight-bold text-uppercase title mb-5">mobile wallpaper</h1>
+                        <form class="bd-search ">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-dark border-0">
+                                        <i class="fa fa-search text-muted"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control text-dark border-0 font-weight-bold"
+                                    id="search-input" placeholder="Search...eg.(panda,nature,3d...etc)" autocomplete="off">
+                            </div>
+                            <div class="my-2">
+                                <input type="range" class="form-range mt-3 text-dark" min="3" step="0.1" max="6"
+                                    id="customRange2" style="width: 50%">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
+
             <div class="container-fluid">
                 {{-- <div class="element ftco-animate" data-animate-effect="fadeIn"> --}}
                     <!-- Display Images -->
