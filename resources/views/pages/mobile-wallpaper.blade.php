@@ -7,12 +7,9 @@
                 <h1 class="font-weight-bold title">Mobile Wallpapers</h1>
                 <div class="row">
                     <form class="bd-search hidden-sm-down">
-                        <div class="input-group">
-                            <div class="input-group-prepend bg-graylight border-0 font-weight-bold">
-                                <span class="input-group-text"><i class="fa fa-search" aria-hidden="true"></i></span>
-                            </div>
-                            <input type="text" class="form-control bg-graylight border-0 font-weight-bold" id="search-input" placeholder="Search...eg.(panda,cat,nyc...etc)" autocomplete="off">
-                        </div>
+                            <input type="text" class="form-control bg-dark text-light border-0 font-weight-bold" id="search-input" placeholder="Search...eg.(panda,cat,nyc...etc)" autocomplete="off">
+                            {{-- <label for="range" class="mt-1">Column Count</label> --}}
+                            <input type="range" class="form-range mt-3 text-dark" min="3" step="0.1" max="6" id="customRange2" style="width: 30%">
                     </form>
                 </div>
             </div>
@@ -20,7 +17,7 @@
                 {{-- <div class="element ftco-animate" data-animate-effect="fadeIn"> --}}
                     <!-- Display Images -->
                     <div class="row">
-                        <div class="card-columns">
+                        <div class="card-columns" style="column-count: 5">
                             {{-- 1st time --}}
                             @foreach ($allProducts as $product)
                                 <div class="card card-pin border" id="product-{{ $product->id }}">
@@ -32,9 +29,11 @@
                                     </a>
                                     <div class="overlay see-button" data-image-src="{{ asset('storage/'. $product->image_url) }}" title="Tap To See Photo">
                                         <h2 class="card-title title text-uppercase">{{ $product->name }}</h2>
-                                        @if (Auth::user()->role == 'admin')
-                                            <h2 class="card-title title text-uppercase">{{ $product->id }}</h2>
-                                        @endif
+                                        @auth()
+                                            @if (Auth::user()->role == 'admin')
+                                                <h2 class="card-title title text-uppercase">{{ $product->id }}</h2>
+                                            @endif
+                                        @endauth
                                         <div class="more bg-light rounded-3 m-1 p-1">
                                             <a href="javascript:void(0);" class="see-button fs-3 text-dark" title="Tap To Saw Image" data-image-src="{{ asset('storage/'. $product->image_url) }}">
                                                 <i class="fa fa-eye" aria-hidden="true"></i>
@@ -142,5 +141,19 @@
             });
         });
 
+    </script>
+
+    {{-- column count --}}
+    <script>
+        $(document).ready(function() {
+            // Listen for changes in the range input
+            $('#customRange2').on('input', function() {
+                // Get the current value of the range input
+                var columnCount = $(this).val();
+
+                // Update the column-count style of the card-columns element
+                $('.card-columns').css('column-count', columnCount);
+            });
+        });
     </script>
 @endsection

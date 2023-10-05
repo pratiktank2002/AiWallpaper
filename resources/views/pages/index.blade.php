@@ -1,46 +1,52 @@
 @extends('layouts.main')
 
 @section('main-section')
-    <main role="main">
+    <main role="main" style="background: #f3f5f7">
 
-        <section class="mt-4 mb-5">
-            <div class="container mb-4">
+        <section class="pt-4 mb-5">
+            <div class="container mb-4 text-center">
                 <h1 class="font-weight-bold title">Explore AI Images</h1>
                 <div class="row">
                     <form class="bd-search hidden-sm-down">
-                        <input type="text" class="form-control bg-graylight border-0 font-weight-bold" id="search-input" placeholder="Search...eg.(panda,nature,3d...etc)" autocomplete="off">
-                        <div class="dropdown-menu bd-search-results" id="search-results">
-                        </div>
+                        <input type="text" class="form-control bg-dark text-light border-0 font-weight-bold"
+                            id="search-input" placeholder="Search...eg.(panda,nature,3d...etc)" autocomplete="off">
+                        <input type="range" class="form-range mt-3 text-dark" min="3" step="0.1" max="6"
+                            id="customRange2" style="width: 30%">
                     </form>
                 </div>
+            </div>
             </div>
             <div class="container-fluid">
                 {{-- <div class="element ftco-animate" data-animate-effect="fadeIn"> --}}
                     <!-- Display Images -->
                     <div class="row">
-                        <div class="card-columns">
+                        <div class="card-columns" style="column-count: 4">
                             {{-- 1st time --}}
                             @foreach ($allProducts as $product)
                                 <div class="card card-pin border" id="product-{{ $product->id }}">
-                                    <a href="{{ asset('storage/'. $product->image_url) }}" class="image-popup" data-mfp-src="{{ asset('storage/'. $product->image_url) }}">
-                                        <img class="card-img"
-                                            src="{{ asset('storage/'. $product->image_url) }}"
-                                            alt="{{ $product->name }}"
-                                        >
+                                    <a href="{{ asset('storage/' . $product->image_url) }}" class="image-popup"
+                                        data-mfp-src="{{ asset('storage/' . $product->image_url) }}">
+                                        <img class="card-img" src="{{ asset('storage/' . $product->image_url) }}"
+                                            alt="{{ $product->name }}">
                                     </a>
-                                    <div class="overlay see-button" data-image-src="{{ asset('storage/'. $product->image_url) }}">
+                                    <div class="overlay see-button" data-image-src="{{ asset('storage/' . $product->image_url) }}">
                                         <h2 class="card-title title text-uppercase">{{ $product->name }}</h2>
-                                        @if (Auth::user()->role == 'admin')
-                                            <h2 class="card-title title text-uppercase">{{ $product->id }}</h2>
-                                        @endif
+                                        @auth()
+                                            @if (Auth::user()->role == 'admin')
+                                                <h2 class="card-title title text-uppercase">{{ $product->id }}</h2>
+                                            @endif
+                                        @endauth
                                         <div class="more bg-light rounded-3 m-1 p-1">
-                                            <a href="javascript:void(0);" class="see-button fs-3 text-dark" title="Tap To Saw Image" data-image-src="{{ asset('storage/'. $product->image_url) }}">
+                                            <a href="javascript:void(0);" class="see-button fs-3 text-dark"
+                                                title="Tap To Saw Image"
+                                                data-image-src="{{ asset('storage/' . $product->image_url) }}">
                                                 <i class="fa fa-eye" aria-hidden="true"></i>
                                             </a>
-                                            <a href="{{ asset('storage/'. $product->image_url) }}" class="download-button fs-3 text-dark" title="Download Image" download ">
-                                                {{-- not working --}}
-                                                {{-- onclick="updateImageDownloadCount() --}}
-                                                <i class="fa fa-download" aria-hidden="true"></i>
+                                            <a href="{{ asset('storage/' . $product->image_url) }}"
+                                                class="download-button fs-3 text-dark" title="Download Image" download ">
+                                                        {{-- not working --}}
+                                                        {{-- onclick="updateImageDownloadCount() --}}
+                                                        <i class="fa fa-download" aria-hidden="true"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -56,6 +62,7 @@
 @endsection
 
 @section('custom-scripts')
+    {{-- image popup --}}
     <script>
         // Initialize Magnific Popup for images
         $('.image-popup').magnificPopup({
@@ -90,7 +97,7 @@
         });
 
         // Add click event to the "See" button to open the image popup
-        $('.see-button').on('click', function (e) {
+        $('.see-button').on('click', function(e) {
             e.preventDefault();
 
             var imageSrc = $(this).data('image-src');
@@ -102,9 +109,9 @@
                 type: 'image'
             });
         });
-
     </script>
 
+    {{-- image search --}}
     <script>
         $(document).ready(function() {
             $('#search-input').on('input', function() {
@@ -127,6 +134,17 @@
         });
     </script>
 
+    {{-- column count --}}
+    <script>
+        $(document).ready(function() {
+            // Listen for changes in the range input
+            $('#customRange2').on('input', function() {
+                // Get the current value of the range input
+                var columnCount = $(this).val();
 
+                // Update the column-count style of the card-columns element
+                $('.card-columns').css('column-count', columnCount);
+            });
+        });
+    </script>
 @endsection
-

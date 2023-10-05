@@ -50,6 +50,8 @@ class PagesRoutesController extends Controller
     // Author page
     public function author()
     {
-        return view('pages.author');
+        $allProducts = Products::all()->skip(30);
+
+        return view('pages.author', compact('allProducts'));
     }
 }

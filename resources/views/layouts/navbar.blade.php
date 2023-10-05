@@ -13,12 +13,12 @@
             <li class="nav-item">
                 <a class="nav-link active" href="{{ route('index') }}">Home</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" title="Mobile Walpapers" href="{{ route('mobileWallpapers') }}">Mobile</a>
+            </li>
             @auth()
                 <li class="nav-item">
                     <a class="nav-link" title="Genrate images from text" href="{{ route('image_generate') }}">Generate Image</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" title="Mobile Walpapers" href="{{ route('mobileWallpapers') }}">Mobile</a>
                 </li>
                 {{-- Dropdown for other links --}}
                 <li class="nav-item dropdown">
@@ -41,10 +41,10 @@
                 </li>
             @else
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    <a class="nav-link text-light mx-1 btn btn-dark d-block" href="{{ route('login') }}">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('register') }}">Register</a>
+                    <a class="nav-link text-light btn btn-dark d-block" href="{{ route('register') }}">Register</a>
                 </li>
             @endauth
         </ul>
