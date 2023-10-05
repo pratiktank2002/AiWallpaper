@@ -41,7 +41,7 @@ async function generateImages(input) {
         // We added random number to prompt to create different results
         const response = await fetch(
             // "https://api-inference.huggingface.co/models/prompthero/openjourney",
-            "https://api-inference.huggingface.co/models/runwayml/stable-diffusion-v1-5",
+            "https://api-inference.huggingface.co/models/runwayml/stable-diffusion-xl-refiner-1.0",
             {
                 method: "POST",
                 headers: {

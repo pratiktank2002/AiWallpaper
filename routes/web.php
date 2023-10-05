@@ -33,6 +33,10 @@ Route::get('/dashboard', function () {
 
 Route::get('/blogs', [BlogsController::class, 'index'])->name('blogs');
 
+Route::get('/404', function () {
+    return view('pages.404');
+});
+
 Route::middleware('auth')->group(function () {
 
     // profile routes
