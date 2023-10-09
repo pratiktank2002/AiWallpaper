@@ -22,7 +22,7 @@
                                         <i class="fa fa-search text-muted"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control text-dark border-0 font-weight-bold"
+                                <input type="text" class="form-control text-dark bg-dark-subtle border-0 font-weight-bold"
                                     id="search-input" placeholder="Search...eg.(panda,nature,3d...etc)" autocomplete="off">
                             </div>
                             <div class="my-2">

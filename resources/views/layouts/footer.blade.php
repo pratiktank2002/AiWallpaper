@@ -1,4 +1,4 @@
-<footer class="footer pt-5 pb-5 text-center">
+{{-- <footer class="footer pt-5 pb-5 text-center">
 
     <div class="container">
 
@@ -35,4 +35,52 @@
 
     </div>
 
+</footer> --}}
+<link rel="stylesheet" href="{{ asset('assets/css/footer-css.css') }}">
+<!-- FOOTER -->
+<footer class="w-100 py-4 flex-shrink-0">
+    <div class="container py-4">
+        <div class="row gy-4 gx-5">
+            <div class="col-lg-4 col-md-6">
+                <h5 class="h1 text-white text-uppercase">ai wallpaper</h5>
+                <p class="small text-muted">An Beautifull Collection Of ai generated Images.</p>
+                <p class="large text-muted mb-0">&copy; Copyrights. All rights reserved. <a class="text-primary"
+                        target="_blank"
+                        href="{{ env('LINKEDIN') }}">Pratik</a></p>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h5 class="text-white mb-3">Quick links</h5>
+                <ul class="list-unstyled text-muted">
+                    <li><a href="{{ route('index') }}">Home</a></li>
+                    <li><a href="{{ route('mobileWallpapers') }}">Mobile Wallpaper</a></li>
+                    <li><a href="{{ route('image_generate') }}">Genrate Images</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h5 class="text-white mb-3">Pages</h5>
+                <ul class="list-unstyled text-muted">
+                    <li><a href="{{ route('blogs') }}">Blogs</a></li>
+                    <li><a href="{{ route('author') }}">Mobile Wallpaper</a></li>
+                    {{-- <li><a href="{{ route('image_generate') }}">Genrate Images</a></li> --}}
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h5 class="text-white mb-3">Newsletter</h5>
+                <p class="small text-muted">Get An monthly Update From Our Website. <br> Subscribe to Our Newsletter here!</p>
+                <form action="{{ route('newsLetter') }}" method="POST">
+                    @csrf
+                    <div class="input-group mb-3">
+                        <input class="form-control" type="email" name="email" placeholder="Recipient's Email!!">
+                        @error('email')
+                            <div class="alert alert-secondary" role="alert">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                        <button class="btn btn-primary" title="Subscribe" id="button-addon2" type="submit"><i
+                                class="fa fa-paper-plane"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </footer>

@@ -3,7 +3,7 @@
 @section('main-section')
     <main role="main" style="background: #f3f5f7">
 
-        <section class="pt-4 mb-5">
+        <section class="pt-4 pb-5">
             <div class="container mt-5">
                 <div class="row justify-content-center">
                     <div class="col-md-6 text-center">

@@ -48,7 +48,7 @@
                                 title: 'Limit Exceeded',
                                 text: 'You have reached the daily generation limit of 5. Please try again tomorrow.',
                                 showConfirmButton: false, // Hide the "OK" button
-                                timer: 3000, // Automatically close after 2 seconds
+                                timer: 3000,
                             });
                         }
                     } else {
@@ -58,7 +58,7 @@
                             title: 'Technical Error',
                             text: 'failed to generate image due to Technical error',
                             showConfirmButton: false, // Hide the "OK" button
-                            timer: 3000, // Automatically close after 2 seconds
+                            timer: 3000,
                         });
                     }
                 })

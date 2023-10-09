@@ -40,8 +40,8 @@ async function generateImages(input) {
         const prompt = `${input} ${randomNumber}`;
         // We added random number to prompt to create different results
         const response = await fetch(
-            // "https://api-inference.huggingface.co/models/prompthero/openjourney",
-            "https://api-inference.huggingface.co/models/runwayml/stable-diffusion-xl-refiner-1.0",
+            "https://api-inference.huggingface.co/models/prompthero/openjourney",
+            // "https://api-inference.huggingface.co/models/runwayml/stable-diffusion-xl-refiner-1.0",
             {
                 method: "POST",
                 headers: {
@@ -61,6 +61,7 @@ async function generateImages(input) {
                 showConfirmButton: false, // Hide the "OK" button
                 timer: 4000, // Automatically close after 2 seconds
             });
+            console.log('API Error: ' + response.ok);
         }
 
         const blob = await response.blob();

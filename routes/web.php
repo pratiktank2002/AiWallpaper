@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogsController;
+use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\PagesRoutesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
@@ -18,24 +19,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// routes for products & search products
 Route::get('/', [ProductsController::class, 'index'])->name('index');
 Route::get('/search-products', [ProductsController::class, 'searchProducts'])->name('search-products');
 
+// Routes for all pages
 Route::get('/mobile-wallpapers', [PagesRoutesController::class, 'mobileWallpapers'])->name('mobileWallpapers');
-
 Route::get('/author', [PagesRoutesController::class, 'author'])->name('author');
-
 Route::get('/post',[PagesRoutesController::class, 'post'])->name('post');
 
+// user's dashboard routes
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// routes for blogs page
 Route::get('/blogs', [BlogsController::class, 'index'])->name('blogs');
 
+// 404 page routes
 Route::get('/404', function () {
     return view('pages.404');
 });
+
+// newsletter routes
+Route::post('/newsLetter', [NewsLetterController::class, 'store'])->name('newsLetter');
 
 Route::middleware('auth')->group(function () {
 

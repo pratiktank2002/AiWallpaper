@@ -7,8 +7,8 @@
             style="background-image:url(https://plus.unsplash.com/premium_photo-1679082305620-fa44b9a3b6ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGFpJTIwZ2VuZXJhdGVkfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60);">
         </div>
         <div class="container mb-4">
-            <img src="https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" class="mt-neg100 mb-4 rounded-circle" width="128">
-            <h1 class="font-weight-bold title">Sal</h1>
+            <img src="https://media.licdn.com/dms/image/D4D03AQF2KlONLFInvw/profile-displayphoto-shrink_200_200/0/1684863265799?e=1702512000&v=beta&t=ooWLk3dcRgIb_3a90HafqH0nXcjGWH5JFmYc9p6E-tU" class="mt-neg100 mb-4 rounded-circle" width="128">
+            <h1 class="font-weight-bold title">Pratik</h1>
             <p>
                 I love Art, Web Design, Photography, Design, Illustration
             </p>

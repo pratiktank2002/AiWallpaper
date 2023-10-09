@@ -27,11 +27,16 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow-lg text-center" aria-labelledby="dropdown02">
                         {{-- Move other links to the dropdown --}}
-                        <span class="dropdown-item"><a href="{{ route('blogs') }}">Blogs</a></span>
+                        <span class="dropdown-item">
+                            <a href="{{ route('blogs') }}" class="btn btn-dark d-block">Blogs</a>
+                        </span>
                         <div class="dropdown-divider"></div>
-                        <span class="dropdown-item"><a href="{{ route('author') }}"><img class="rounded-circle mr-2" src="{{ asset('assets/img/av.png')}}" width="30">Author</a></span>
+                        <span class="dropdown-item">
+                            <a href="{{ route('author') }}" class="btn btn-dark d-block">Author</a>
+                        </span>
                         {{-- ... Add other links here ... --}}
                         <div class="dropdown-divider"></div>
+                        <p class="text-center text-dark">Action</p>
                         <span class="dropdown-item"><a href="{{ route('profile.edit') }}" target="_blank" class="btn btn-dark d-block"><i class="fa fa-user"></i> Profile</a></span>
                         <form  method="POST" action="{{ route('logout') }}">
                             @csrf
