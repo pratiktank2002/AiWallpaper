@@ -14,7 +14,7 @@
                         <img class="postcard__img" src="{{ asset('assets/blogs/' . $blog['image']) }}" alt="{{ $blog['title'] }}" />
                     </a>
                     <div class="postcard__text t-dark">
-                        <h1 class="postcard__title gray-dark"><a href="{{ $blog['blog_url'] }}">{{ $blog['title'] }}</a></h1>
+                        <h1 class="postcard__title gray-dark"><a href="{{ $blog['blog_url'] }}">{{ $blog['id'] }}. {{ $blog['title'] }}</a></h1>
                         <div class="postcard__subtitle small">
                             <time datetime="{{ $blog['date'] }}">
                                 <i class="fa fa-calendar mr-2"></i>{{ date('D, M jS Y', strtotime($blog['date'])) }}

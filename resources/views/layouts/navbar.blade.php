@@ -30,7 +30,7 @@
                         <span class="dropdown-item">
                             <a href="{{ route('blogs') }}" class="btn btn-dark d-block">Blogs</a>
                         </span>
-                        <div class="dropdown-divider"></div>
+                        {{-- <div class="dropdown-divider"></div> --}}
                         <span class="dropdown-item">
                             <a href="{{ route('author') }}" class="btn btn-dark d-block">Author</a>
                         </span>
